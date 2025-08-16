@@ -1,41 +1,32 @@
 import { useEffect, useRef } from 'react';
 import { View, Image, Animated } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-
-
-EStyleSheet.build({
-    $bgColor: '#E0F7FA',
-    $primaryColor: '#497EDC',
-});
+import { globalStyles, globalVars } from '../assets/styles/GlobalStyles';
 
 const styles = EStyleSheet.create(
     {
-        screen: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            overflow: 'hidden',
-        },
+        ...globalStyles,
         container: {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center'
         },
-        logo: {
+        splashLogo: {
             width: '50%',
             height: '50%',
             marginTop: '-20%',
         },
         loadingBalls: {
+            marginTop: 32,
             flexDirection: 'row',
             gap: 16,
             justifyContent: 'center',
             alignItems: 'center',
         },
         ball: {
-            width: 24,
-            height: 24,
-            borderRadius: 12,
+            width: '2rem',
+            height: '2rem',
+            borderRadius: '1rem',
             backgroundColor: '$primaryColor',
         }
     }
@@ -76,8 +67,8 @@ export const SplashScreen = () => {
     }, []);
 
     return (
-        <View style={styles.screen}>
-            <Image source={require('../assets/logo.png')} style={styles.logo} resizeMode='contain' />
+        <View style={[styles.screenCenter, styles.bgDefault]}>
+            <Image source={require('../assets/images/logo.png')} style={styles.splashLogo} resizeMode='contain' />
             <View style={styles.loadingBalls}>
                 {
                     balls.map((ball, i) => (
