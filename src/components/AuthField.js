@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, Image, TextInput, Pressable, Alert } from 'react-native';
+import { View, Text, Image, TextInput, Pressable } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { globalStyles } from '../assets/styles/GlobalStyles';
 
@@ -34,7 +34,7 @@ const styles = EStyleSheet.create({
 });
 
 
-export const AuthField = ({ type, icon, password }) => {
+export const AuthField = ({ type, icon, password, onChangeText, value }) => {
     const [showPassword, setShowPassword] = useState(false);
     const handlePasswordPress = () => {
         setShowPassword(!showPassword);
@@ -47,6 +47,8 @@ export const AuthField = ({ type, icon, password }) => {
                 placeholder={type}
                 placeholderTextColor="rgba(0,0,0,0.6)"
                 secureTextEntry={password && !showPassword}
+                onChangeText={onChangeText}
+                value={value}
             />
             {password && (
 

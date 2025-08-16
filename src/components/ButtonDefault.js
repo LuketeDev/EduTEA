@@ -21,9 +21,9 @@ const styles = EStyleSheet.create({
 })
 
 
-export const ButtonDefault = ({ title }) => {
+export const ButtonDefault = ({ title, onPress }) => {
     return (
-        <TouchableOpacity style={[styles.buttonSubmit, styles.bgPrimaryDefault, styles.centerContent]} activeOpacity={0.8}>
+        <TouchableOpacity style={[styles.buttonSubmit, styles.bgPrimaryDefault, styles.centerContent]} activeOpacity={0.8} onPress={onPress}>
             <Text style={styles.btnTitle}>{title}</Text>
         </TouchableOpacity>
     )
