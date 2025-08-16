@@ -14,6 +14,10 @@ export const globalStyles = EStyleSheet.create({
     bgPrimaryDefault: {
         backgroundColor: '$primaryColor',
     },
+    whMax: {
+        width: '100%',
+        height: '100%',
+    },
     screenCenter: {
         flex: 1,
         justifyContent: 'center',
@@ -28,5 +32,10 @@ export const globalStyles = EStyleSheet.create({
         width: '30%',
         height: '30%',
         marginTop: '-10%',
+    },
+    authFooterText: {
+        textDecorationLine: 'underline',
+        color: '#656565',
+        fontSize: '1.5rem',
     },
 });

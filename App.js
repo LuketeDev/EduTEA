@@ -1,22 +1,21 @@
-import { useEffect, useState } from "react"
-import { LoginField } from "./src/components/LoginField"
-import { LoginScreen } from "./src/screens/LoginScreen"
-import { SplashScreen } from "./src/screens/SplashScreen"
+import * as React from "react";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { LoginScreen } from "./src/screens/LoginScreen";
+import { SplashScreen } from "./src/screens/SplashScreen";
+import { RegisterScreen } from "./src/screens/RegisterScreen";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('splash')
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentScreen('login')
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [])
-
   return (
-    <>
-      {currentScreen === 'splash' && <SplashScreen />}
-      {currentScreen === 'login' && <LoginScreen />}
-    </>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='Splash' component={SplashScreen} />
+        <Stack.Screen name='Login' component={LoginScreen} />
+        <Stack.Screen name='Register' component={RegisterScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }

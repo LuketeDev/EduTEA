@@ -32,7 +32,7 @@ const styles = EStyleSheet.create(
     }
 )
 
-export const SplashScreen = () => {
+export const SplashScreen = ({ navigation }) => {
     const balls = Array.from({ length: 3 }, () => useRef(new Animated.Value(0)).current);
 
     const animateBall = (delay) => {
@@ -65,6 +65,13 @@ export const SplashScreen = () => {
             animateBall(i * 50)
         });
     }, []);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigation.replace('Login');
+        }, 3000);
+
+        return () => clearTimeout(timer)
+    }, [])
 
     return (
         <View style={[styles.screenCenter, styles.bgDefault]}>

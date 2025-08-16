@@ -34,7 +34,7 @@ const styles = EStyleSheet.create({
 });
 
 
-export const LoginField = ({ type, icon, password }) => {
+export const AuthField = ({ type, icon, password }) => {
     const [showPassword, setShowPassword] = useState(false);
     const handlePasswordPress = () => {
         setShowPassword(!showPassword);
