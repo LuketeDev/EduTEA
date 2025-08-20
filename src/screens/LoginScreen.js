@@ -43,7 +43,7 @@ export const LoginScreen = ({ navigation }) => {
             if (user.password === password) {
                 //Login ok
                 Alert.alert('Bem vindo')
-                navigation.replace('Splash');
+                navigation.replace('Questions');
             } else {
                 //Login not ok
                 Alert.alert('Senha ou email incorretos')
@@ -60,7 +60,7 @@ export const LoginScreen = ({ navigation }) => {
                 <Image source={require('../assets/images/logo.png')} style={styles.logoDefault} resizeMode='contain' />
                 <AuthField type={"E-Mail"} icon={require("../assets/images/mail_line_icon.png")} password={false} onChangeText={setEmail} value={email} />
                 <AuthField type={"Senha"} icon={require("../assets/images/lock_line_icon.png")} password={true} onChangeText={setPassword} value={password} />
-                <ButtonDefault title={"Fazer login"} onPress={handleLogin} />
+                <ButtonDefault title={"Fazer login"} onPress={handleLogin} size={['80%', '10%']} border={24} />
             </View>
             <View style={styles.footer}>
                 <Pressable onPress={() => navigation.navigate('Register')}>

@@ -4,14 +4,14 @@ import { globalStyles } from "../assets/styles/GlobalStyles";
 
 const styles = EStyleSheet.create({
     ...globalStyles,
-    buttonSubmit: {
+    button: {
         flexDirection: 'row',
         alignItems: 'center',
         width: '80%',
         height: '10%',
         borderRadius: 24,
         marginBottom: 24,
-        padding: '1.25rem',
+        padding: '.75rem',
     },
     btnTitle: {
         fontSize: '1.75rem',
@@ -21,9 +21,9 @@ const styles = EStyleSheet.create({
 })
 
 
-export const ButtonDefault = ({ title, onPress }) => {
+export const ButtonDefault = ({ title, onPress, size, border }) => {
     return (
-        <TouchableOpacity style={[styles.buttonSubmit, styles.bgPrimaryDefault, styles.centerContent]} activeOpacity={0.8} onPress={onPress}>
+        <TouchableOpacity style={[styles.button, styles.bgPrimaryDefault, styles.centerContent, { width: size[0], height: size[1], borderRadius: border }]} activeOpacity={0.8} onPress={onPress}>
             <Text style={styles.btnTitle}>{title}</Text>
         </TouchableOpacity>
     )

@@ -1,6 +1,28 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { ImageBackground } from 'react-native-web';
+import { Platform } from 'react-native';
 
+
+export const genBoxShadowStyle = (xOffset, yOffset, shadowColorIos, shadowOpacity, shadowRadius, elevation, shadowColorAndroid, type = "outset"
+) => {
+    if (Platform.OS === 'ios') {
+        return {
+            shadowColor: shadowColorIos,
+            shadowOffset: { width: xOffset, height: yOffset },
+            shadowOpacity,
+            shadowRadius,
+        };
+    } else if (Platform.OS === 'android') {
+        return {
+            elevation,
+            shadowColor: shadowColorAndroid,
+        };
+    } else if (Platform.OS === 'web') {
+        return {
+            boxShadow: `${type} ${xOffset}px ${yOffset}px ${shadowRadius}px rgba(0, 0, 0, ${shadowOpacity})`,
+        };
+    }
+};
 
 export const globalVars = EStyleSheet.build({
     $bgColor: '#E0F7FA',
@@ -14,9 +36,16 @@ export const globalStyles = EStyleSheet.create({
     bgPrimaryDefault: {
         backgroundColor: '$primaryColor',
     },
+    fonts: {
+        regular: "Inter_400Regular",
+        bold: "Inter_700Bold",
+    },
     whMax: {
         width: '100%',
         height: '100%',
+    },
+    mAuto: {
+        margin: 'auto',
     },
     screenCenter: {
         flex: 1,
@@ -26,6 +55,10 @@ export const globalStyles = EStyleSheet.create({
     },
     centerContent: {
         justifyContent: 'center',
+        alignItems: 'center',
+    },
+    spaceBetweenContent: {
+        justifyContent: 'space-between',
         alignItems: 'center',
     },
     logoDefault: {

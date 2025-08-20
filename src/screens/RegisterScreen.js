@@ -52,7 +52,7 @@ export const RegisterScreen = ({ navigation }) => {
                 <AuthField type={"E-Mail"} icon={require("../assets/images/mail_line_icon.png")} password={false} onChangeText={setEmail} value={email} />
                 <AuthField type={"Nome"} icon={require("../assets/images/user_line_icon.png")} password={false} onChangeText={setUsername} value={username} />
                 <AuthField type={"Senha"} icon={require("../assets/images/lock_line_icon.png")} password={true} onChangeText={setPassword} value={password} />
-                <ButtonDefault title={"Registrar"} onPress={handleRegister} />
+                <ButtonDefault title={"Registrar"} onPress={handleRegister} size={['80%', '10%']} border={24} />
             </View>
             <View style={styles.footer}>
                 <Pressable onPress={() => navigation.navigate('Login')}>
